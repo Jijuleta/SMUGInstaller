@@ -1,0 +1,152 @@
+﻿<Window x:Class="SMUGInstaller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMUGInstaller"
+        mc:Ignorable="d"
+        Title="SMUGInstaller" Height="950" Width="1800"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButton" TargetType="Button">
+            <Setter Property="Background" Value="#00a89b"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="15,10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#00c2b2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CategoryTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#121117" Offset="0"/>
+                <GradientStop Color="#00a89b" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="SMUGInstaller" FontSize="36" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Tools" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox Name="ToolsListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Files" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="FilesListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="VPN" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="VPNListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Browsers" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="BrowsersListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Games" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="GamesListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Coding" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="CodingListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Messengers" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="MessengersListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Redists" Style="{StaticResource CategoryTitle}"/>
+                    <ListBox x:Name="RedistsListBox" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding DisplayName}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </WrapPanel>
+        </ScrollViewer>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <Button Content="Install Selected" Style="{StaticResource RoundedButton}" Click="ApplyButton_Click" Width="200" Margin="0,0,10,0"/>
+            <Button Content="Features" Style="{StaticResource RoundedButton}" Click="Features_Click" Width="200" Margin="10,0,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Bottom" Margin="20">
+            <Label Name="CurrentProgramLabel" Content="Installing:" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Visibility="Hidden"/>
+            <ProgressBar Name="InstallProgress" Minimum="0" Maximum="100" Height="20" Width="400" Visibility="Hidden">
+                <ProgressBar.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#121117" Offset="0"/>
+                        <GradientStop Color="#00a89b" Offset="1"/>
+                    </LinearGradientBrush>
+                </ProgressBar.Foreground>
+            </ProgressBar>
+        </StackPanel>
+    </Grid>
+</Window>
