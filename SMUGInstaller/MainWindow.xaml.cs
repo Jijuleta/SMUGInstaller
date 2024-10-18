@@ -15,53 +15,53 @@ namespace SMUGInstaller
             bool hasWinGet = Checks.IsWinGet();
             bool hasRightWinGet = Checks.IsRightWinGet();
             if (hasAdminRights)
-            {
-                if (hasWinGet)
-                {
-                    if (hasRightWinGet)
-                    {
+             {
+                 if (hasWinGet)
+                 {
+                     if (hasRightWinGet)
+                     {
                         InitializeComponent();
                         LoadPrograms();
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                        "Install a newer version of Winget by updating in the Microsoft Store.",
-                        "Invalid Winget version",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(
-                      "This application requires Windows Package Manager to function properly.\nWinget will be installed right now.",
-                      "Winget check failed",
-                      MessageBoxButton.OK,
-                      MessageBoxImage.Information);
-                    var executor = new Winget();
-                    executor.InstallWinGet();
-                    MessageBox.Show(
-                      "Restart application",
-                      "Winget installed.",
-                      MessageBoxButton.OK,
-                      MessageBoxImage.Information);
-                    Application.Current.Shutdown();
+                     }
+                     else
+                     {
+                         MessageBox.Show(
+                         "Install a newer version of Winget by updating in the Microsoft Store.",
+                         "Invalid Winget version",
+                         MessageBoxButton.OK,
+                         MessageBoxImage.Error);
+                     }
+                 }
+                 else
+                 {
+                     MessageBox.Show(
+                       "This application requires Windows Package Manager to function properly.\nWinget will be installed right now.",
+                       "Winget check failed",
+                       MessageBoxButton.OK,
+                       MessageBoxImage.Information);
+                     var executor = new Winget();
+                     executor.InstallWinGet();
+                     MessageBox.Show(
+                       "Restart application",
+                       "Winget installed.",
+                       MessageBoxButton.OK,
+                       MessageBoxImage.Information);
+                     Application.Current.Shutdown();
 
-                }
+                 }
 
-            }
-            else
-            {
-                MessageBox.Show(
-                    "This application requires administrator rights to function properly.\nPlease restart the application with administrator privileges.",
-                    "UAC check failed",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-                Application.Current.Shutdown();
+             }
+             else
+             {
+                 MessageBox.Show(
+                     "This application requires administrator rights to function properly.\nPlease restart the application with administrator privileges.",
+                     "UAC check failed",
+                     MessageBoxButton.OK,
+                     MessageBoxImage.Error);
+                 Application.Current.Shutdown();
 
-            }
-        }
+             }
+         }
 
         public string winGetDefault = "winget install --accept-source-agreements --accept-package-agreements -e --id";
         private void LoadPrograms()
@@ -115,7 +115,8 @@ namespace SMUGInstaller
                 new Program("Visual Studio Community 2022", $"{winGetDefault} Microsoft.VisualStudio.2022.Community"),
                 new Program("Visual Studio Code", $"{winGetDefault} Microsoft.VisualStudioCode"),
                 new Program("GitHub Desktop", $"{winGetDefault} GitHub.GitHubDesktop"),
-                new Program("Git", $"{winGetDefault} Git.Git")
+                new Program("Git", $"{winGetDefault} Git.Git"),
+                new Program("FFmpeg", $"{winGetDefault} Gyan.FFmpeg")
             };
             List<Program> messengers = new List<Program>
             {

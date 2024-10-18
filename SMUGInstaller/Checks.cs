@@ -64,8 +64,13 @@ namespace SMUGInstaller
             }
 
             string[] versionParts = versionString.Split('.');
-            int majorVersion = int.Parse(versionParts[0]);
-            int minorVersion = int.Parse(versionParts[1]);
+
+            int majorVersion;
+            int minorVersion;
+            if (!int.TryParse(versionParts[0], out majorVersion) || (!int.TryParse(versionParts[1], out minorVersion)))
+            {
+                return false;
+            }
 
             if (majorVersion < 1 || (majorVersion == 1 && minorVersion < 8))
             {
