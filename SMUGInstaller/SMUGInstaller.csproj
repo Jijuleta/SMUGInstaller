@@ -10,6 +10,8 @@
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ErrorReport>none</ErrorReport>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <FileVersion>1.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
