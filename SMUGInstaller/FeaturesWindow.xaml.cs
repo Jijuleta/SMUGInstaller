@@ -42,5 +42,15 @@ namespace SMUGInstaller
             MessageBoxButton.OK,
             MessageBoxImage.Exclamation);
         }
+
+        private void StartUpFolder_Click(object sender, RoutedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.UseShellExecute = false;
+            Process.Start("explorer.exe", "shell:startup");
+        }
     }
 }

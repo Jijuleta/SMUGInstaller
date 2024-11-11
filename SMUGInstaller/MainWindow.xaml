@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SMUGInstaller"
         mc:Ignorable="d"
-        Title="SMUGInstaller" Height="950" Width="1800"
+        Title="SMUGInstaller"
+        MinHeight="600" MinWidth="800"
+        Height="950" Width="1800"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="RoundedButton" TargetType="Button">
@@ -134,7 +137,8 @@
             </WrapPanel>
         </ScrollViewer>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-            <Button Content="Install Selected" Style="{StaticResource RoundedButton}" Click="ApplyButton_Click" Width="200" Margin="0,0,10,0"/>
+            <Button Content="Update all apps" Style="{StaticResource RoundedButton}" Click="UpdateAppsButton_Click" Width="200" Margin="0,0,0,0"/>
+            <Button Content="Install Selected" Style="{StaticResource RoundedButton}" Click="ApplyButton_Click" Width="200" Margin="10,0,0,0"/>
             <Button Content="Features" Style="{StaticResource RoundedButton}" Click="Features_Click" Width="200" Margin="10,0,0,0"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Bottom" Margin="20">

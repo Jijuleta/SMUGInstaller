@@ -239,6 +239,37 @@ namespace SMUGInstaller
             }
         }
 
+        private async void UpdateAppsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var scriptArguments = $"-ExecutionPolicy Bypass -Command \"winget upgrade; exit\"";
+            var processStartInfo = new ProcessStartInfo("powershell.exe", scriptArguments)
+            {
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using var process = new Process();
+            process.StartInfo = processStartInfo;
+            process.Start();
+
+            MessageBox.Show("Starting to update all apps...", "SMUGInstaller", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            string output = await process.StandardOutput.ReadToEndAsync();
+            string error = await process.StandardError.ReadToEndAsync();
+
+            await process.WaitForExitAsync();
+            int exitCode = process.ExitCode;
+
+            MessageBox.Show("Apps have been updated successfully.", "SMUGInstaller", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            if (exitCode != 0)
+            {
+                MessageBox.Show($"Error: {error}", "Installation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         public class Program
         {
             public string DisplayName { get; set; }

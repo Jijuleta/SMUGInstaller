@@ -45,6 +45,7 @@
             <TextBlock Text="Features" FontSize="36" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,30"/>
             <Button Content="Mouse Settings" Click="MouseSettings_Click" Style="{StaticResource RoundedButton}" Width="250"/>
             <Button Content="Disable Fast Startup" Click="DisableFastStartup_Click" Style="{StaticResource RoundedButton}" Width="250"/>
+            <Button Content="Open startup folder" Click="StartUpFolder_Click" Style="{StaticResource RoundedButton}" Width="250"/>
         </StackPanel>
     </Grid>
 </Window>
